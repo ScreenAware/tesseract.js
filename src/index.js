@@ -3,7 +3,7 @@ const circularize = require('./common/circularize.js')
 const TesseractJob = require('./common/job');
 const version = require('../package.json').version;
 
-function create(workerOptions = {}){
+const create = (workerOptions = {}) => {
 	var worker = new TesseractWorker(Object.assign({}, adapter.defaultOptions, workerOptions));
 	worker.create = create;
 	worker.version = version;

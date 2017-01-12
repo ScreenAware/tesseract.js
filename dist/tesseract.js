@@ -522,14 +522,14 @@ var circularize = require('./common/circularize.js');
 var TesseractJob = require('./common/job');
 var version = require('../package.json').version;
 
-function create() {
+var create = function create() {
 	var workerOptions = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 	var worker = new TesseractWorker(Object.assign({}, adapter.defaultOptions, workerOptions));
 	worker.create = create;
 	worker.version = version;
 	return worker;
-}
+};
 
 var TesseractWorker = function () {
 	function TesseractWorker(workerOptions) {
